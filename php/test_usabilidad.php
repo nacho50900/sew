@@ -140,7 +140,7 @@ class TestUsabilidadVista {
             <a href="../circuito.html" title="Información del circuito">Circuito</a>
             <a href="../meteorologia.html" title="Información del la meteorología">Meteorologia</a>
             <a href="clasificaciones.php" title="Información de las clasificaciones">Clasificaciones</a>
-            <a href="../juegos.html" title="Información de los juegos" class="active">Juegos</a>
+            <a href="../juegos.html" title="Información de los juegos">Juegos</a>
             <a href="../ayuda.html" title="Información de ayuda">Ayuda</a>
         </nav>
 
