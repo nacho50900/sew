@@ -7,11 +7,15 @@
     <title>MotoGP-Ayuda</title>
 
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
+    <link rel="stylesheet" type="text/css" href="estilo/menu-movil.css" />
+    <link rel="icon" type="text/css" href="multimedia/favicon.ico" />
 
-    <meta name ="author" content ="tu nombre" />
+    <meta name ="author" content ="Ignacio - UO300737" />
     <meta name ="description" content ="Información de ayuda del proyecto MotoGP-Desktop" />
-    <meta name ="keywords" content ="aquí cada documento debe tener la lista de las palabras
-    clave del mismo separadas por comas" />
+    <meta name ="keywords" content ="MotoGP, ayuda, información" />
+      
+    <script src="js/menu-movil.js"></script>
 
 <meta name ="viewport" content ="width=device-width, initial-scale=1.0" />
 
@@ -19,17 +23,137 @@
 
 <body>
     <!-- Datos con el contenidos que aparece en el navegador -->
-    <h1>MotoGPDesktop</h1>
-    <h2>Ayuda de MotoGP-Desktop</h2>
-    <nav>
-        <a href="index.html" title="Página principal">Inicio</a>
-        <a href="piloto.html" title="Información del piloto">Piloto</a>
-        <a href="circuito.html" title="Información del circuito">Circuito</a>
-        <a href="meteorologia.html" title="Información del la meteorología">Meteorologia</a>
-        <a href="clasificaciones.html" title="Información de las clasificaciones">Clasificaciones</a>
-        <a href="juegos.html" title="Información de los juegos">Juegos</a>
-        <a href="ayuda.html" title="Información de ayuda">Ayuda</a>
-    </nav>
-    <p>en desarrollo</p>
+    <h1>
+        <a href="index.html" title="Página principal">MotoGPDesktop</a>
+    </h1>
+
+    <header>
+        <nav>
+            <a href="index.html" title="Página principal">Inicio</a>
+            <a href="piloto.html" title="Información del piloto">Piloto</a>
+            <a href="circuito.html" title="Información del circuito">Circuito</a>
+            <a href="meteorologia.html" title="Información del la meteorología">Meteorologia</a>
+            <a href="php/clasificaciones.php" title="Información de las clasificaciones">Clasificaciones</a>
+            <a href="juegos.html" title="Información de los juegos">Juegos</a>
+            <a href="ayuda.html" title="Información de ayuda" class="active">Ayuda</a>
+        </nav>
+
+        <p>Estás en: <a href="index.html" title="Página principal">Inicio</a> >> <strong>Ayuda</strong></p>
+    </header>
+
+    <section>
+        <h2>Inicio</h2>
+        <p>Página principal de bienvenida al sitio web <strong>MotoGP Desktop</strong>, diseñada para ofrecer una 
+            <strong>visión general</strong> del proyecto y facilitar el acceso rápido a todas las secciones de 
+            <strong>información técnica</strong>, <strong>datos deportivos</strong> y <strong>entretenimiento</strong> 
+            disponibles en la plataforma.</p>
+    </section>
+
+    <section>
+        <h2>Piloto</h2>
+        <p>Sección informativa dedicada a <strong>Maverick Viñales</strong> que detalla su <strong>trayectoria profesional</strong>, 
+            <strong>biografía</strong> y <strong>datos personales</strong>. Incluye una tabla con las <strong>estadísticas</strong> 
+            de la temporada actual, así como una <strong>galería multimedia</strong> con <strong>imágenes responsivas</strong>, 
+            <strong>vídeos</strong> y <strong>audios</strong> relacionados con el piloto.</p>
+    </section>
+        
+    <section>
+        <h2>Circuito</h2>
+        <p>Ofrece <strong>información técnica</strong> detallada sobre las características del <strong>circuito</strong> 
+            donde se disputa el <strong>Gran Premio</strong>. En esta página se describen la <strong>configuración del trazado</strong>, 
+            la <strong>longitud</strong>, las <strong>curvas</strong> y los <strong>sectores</strong>, acompañados de 
+            <strong>recursos multimedia</strong> para visualizar el entorno de la carrera.</p>
+        
+        <h3>Carga de información del circuito</h3>
+        <p>Utiliza el <strong>API File de HTML5</strong> para permitir la lectura de archivos desde la máquina cliente. 
+            Se pueden cargar tres tipos de archivos:</p>
+        
+        <h4>Archivo HTML de información</h4>
+        <p>El archivo <strong>infoCircuito.html</strong> contiene datos detallados del circuito que se procesan 
+            dinámicamente y se integran en la página mediante <strong>manipulación del DOM</strong>.</p>
+        
+        <h4>Archivo SVG de altimetría</h4>
+        <p>El archivo <strong>altimetria.svg</strong> representa gráficamente el <strong>perfil de altimetría</strong> 
+            del circuito, mostrando las elevaciones y descensos a lo largo del trazado.</p>
+        
+        <h4>Archivo KML del mapa</h4>
+        <p>El archivo <strong>circuito.kml</strong> contiene las <strong>coordenadas geográficas</strong> del trazado. 
+            Esta información se utiliza para generar un <strong>mapa dinámico interactivo</strong> mediante 
+            <strong>Google Maps API</strong>, donde se visualiza el circuito con un <strong>marcador en el punto de origen</strong> 
+            y una <strong>polilínea</strong> que dibuja el recorrido completo del trazado.</p>
+    </section>
+    
+    <section>
+        <h2>Meteorologia</h2>
+        <p>Muestra la <strong>situación climática actual</strong> y la <strong>predicción del tiempo</strong> para la 
+            <strong>ubicación exacta</strong> del circuito. Utiliza <strong>tecnologías dinámicas</strong> para obtener 
+            <strong>datos externos</strong> y presentar las condiciones específicas previstas para las sesiones de 
+            <strong>entrenamientos</strong> y el día de la <strong>carrera</strong>.</p>
+    </section>
+    
+    <section>
+        <h2>Clasificaciones</h2>
+        <p>En esta página se utiliza <strong>PHP</strong> para leer un archivo <strong>XML</strong> almacenado en el 
+            <strong>servidor</strong>. La aplicación procesa este archivo para mostrar dinámicamente quién ha sido el 
+            <strong>ganador de la carrera</strong> y listar la <strong>clasificación actual del mundial</strong> 
+            de pilotos.</p>
+    </section>
+         
+    <section>
+        <h2>Juegos</h2>
+        <p>Menú central de <strong>entretenimiento</strong> que agrupa las <strong>aplicaciones interactivas</strong> del sitio web. 
+            Desde aquí se puede acceder al <strong>juego de memoria</strong> de cartas y a las herramientas de <strong>cronometraje</strong>, 
+            disponibles tanto en versión de <strong>cliente (JavaScript)</strong> como de <strong>servidor (PHP)</strong>.</p>
+    </section>
+
+    <section>
+        <h2>Navegación</h2>
+        <p>El sitio web <strong>MotoGP Desktop</strong> cuenta con un <strong>sistema de navegación adaptable</strong> 
+            que se ajusta automáticamente según el dispositivo utilizado:</p>
+        
+        <h3>Navegación en escritorio</h3>
+        <p>En dispositivos de <strong>escritorio y tablets</strong> (anchura mayor a 485px), la navegación se muestra 
+            como un <strong>menú horizontal</strong> en la parte superior de la página, acompañado de <strong>migas de pan</strong> 
+            que indican la ubicación actual dentro del sitio.</p>
+        
+        <h3>Navegación en dispositivos móviles</h3>
+        <p>En dispositivos <strong>móviles</strong> (anchura menor o igual a 485px), la navegación se transforma en un 
+            <strong>menú desplegable tipo hamburguesa</strong>. Un botón con el icono <strong>"☰ Menú"</strong> permite 
+            mostrar u ocultar los enlaces de navegación. Al hacer clic en el botón, el menú se despliega verticalmente 
+            con una <strong>animación suave</strong>. El botón cambia a <strong>"✕ Cerrar"</strong> cuando el menú está 
+            visible. Las <strong>migas de pan se ocultan automáticamente</strong> en dispositivos móviles para optimizar 
+            el espacio en pantalla.</p>
+        
+        <h3>Accesibilidad del menú</h3>
+        <p>El menú móvil implementa <strong>estándares de accesibilidad WCAG 2.0 nivel AAA</strong>, incluyendo 
+            <strong>atributos ARIA</strong> (aria-label, aria-expanded, aria-controls, aria-hidden) para garantizar 
+            la compatibilidad con <strong>lectores de pantalla</strong> y <strong>navegación por teclado</strong>.</p>
+    </section>
+    
+    <section>
+        <h2>Tecnologías utilizadas</h2>
+        <p>El proyecto <strong>MotoGP Desktop</strong> emplea las siguientes tecnologías y estándares web:</p>
+        
+        <h3>HTML5</h3>
+        <p>Utilización de <strong>elementos semánticos</strong> (section, article, nav, header) y validación completa 
+            según los estándares del <strong>W3C</strong>.</p>
+        
+        <h3>CSS3</h3>
+        <p>Diseño <strong>responsive</strong> mediante <strong>Flexbox</strong>, <strong>media queries</strong> y 
+            <strong>medidas relativas</strong>. Uso de <strong>animaciones CSS</strong> para mejorar la experiencia de usuario.</p>
+        
+        <h3>JavaScript ES6+</h3>
+        <p>Programación orientada a objetos con <strong>clases ECMAScript</strong>. Implementación de funcionalidades 
+            mediante el <strong>API File</strong>, <strong>manipulación del DOM</strong> y <strong>DOMParser</strong>.</p>
+        
+        <h3>APIs externas</h3>
+        <p>Integración de <strong>Google Maps API</strong> para mapas interactivos y servicios de 
+            <strong>geolocalización y cartografía</strong>.</p>
+        
+        <h3>Accesibilidad</h3>
+        <p>Cumplimiento de las <strong>pautas WCAG 2.0 nivel AAA</strong> con uso de <strong>atributos ARIA</strong>, 
+            <strong>etiquetas semánticas</strong> y <strong>navegación por teclado</strong>.</p>
+    </section>
+
 </body>
 </html>

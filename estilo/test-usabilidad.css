@@ -1,0 +1,116 @@
+/* Ignacio Hoyos Diego - UO300737 */
+/* Estilos para el test de usabilidad */
+
+/* Sobrescribe el centrado de layout */
+/* Especificidad: 0,0,2 */
+main section {
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 1.25em;
+    text-align: left;
+}
+
+/* Especificidad: 0,0,1 */
+fieldset {
+    text-align: left;
+    margin-bottom: 1.25em;
+    padding: 0.94em;
+    border: 0.2em solid #ffffff;
+    border-radius: 0.25em;
+}
+
+/* Especificidad: 0,0,1 */
+legend {
+    text-align: left;
+    font-weight: bold;
+    padding: 0 0.63em;
+}
+
+/* Especificidad: 0,0,1 */
+form {
+    text-align: left;
+}
+
+/* Especificidad: 0,0,2 */
+form label {
+    display: block;
+    margin-bottom: 0.94em;
+    font-weight: normal;
+    text-align: left;
+    width: 100%;
+}
+
+/* Especificidad: 0,0,2 */
+form label strong {
+    display: block;
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: 0.31em;
+    width: 100%;
+}
+
+/* Especificidad: 0,0,3 */
+form label input,
+form label select,
+form label textarea {
+    width: 100%;
+    padding: 0.5em;
+    box-sizing: border-box;
+    text-align: left;
+    margin-top: 0.31em;
+    display: block;
+}
+
+/* Especificidad: 0,0,2 */
+fieldset input,
+fieldset select,
+fieldset textarea {
+    width: 100%;
+    padding: 0.5em;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+/* Especificidad: 0,0,2 */
+fieldset textarea {
+    min-height: 9.38em;
+    resize: vertical;
+}
+
+/* Especificidad: 0,0,1 */
+button {
+    padding: 0.63em 1.25em;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    border-radius: 0.25em;
+    margin-top: 0.63em;
+    margin-right: 0.63em;
+}
+
+/* Especificidad: 0,0,2 */
+button:hover {
+    background-color: #218838;
+    /* Advertencia: background-color sobrescribe del button */
+}
+
+/* Especificidad: 0,0,2 */
+section p {
+    margin: 0.63em 0;
+    text-align: left;
+}
+
+/* Especificidad: 0,0,2 */
+main h2 {
+    text-align: left;
+    margin-bottom: 0.5em;
+}
+
+/* Especificidad: 0,0,2 */
+section h3 {
+    text-align: left;
+    margin-bottom: 0.63em;
+    margin-top: 0.1em;
+}

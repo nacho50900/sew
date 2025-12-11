@@ -1,0 +1,170 @@
+/* Ignacio Hoyos Diego - UO300737 */
+
+/* Estilos generales del proyecto MotoGP-Desktop */
+
+/* Especificidad: 0,0,1 */
+header {
+    background-color: #FFD68A;
+    color: #9F2B00;
+}
+
+/* Especificidad: 0,0,1 */
+body {
+    font-family: Tahoma, sans-serif;
+    background-color: #FFD68A;
+    color: black;
+}
+
+/* Especificidad: 0,0,1 */
+h1, h2 {
+    font-family: Century, sans-serif;
+    color: #9F2B00;
+    /* Advertencia h1: color de fondo heredado de body (#FFD68A) */
+    /* Advertencia h2: color de fondo heredado de body (#FFD68A) */
+}
+
+/* ESTILOS PARA LOS BOTONES DE NAVEGACIÓN */
+
+/* Especificidad: 0,0,2 */
+header > nav {
+    gap: 0 !important;
+    /* sobrescribe el gap: 1.25em definido en layout.css */
+}
+
+/* Especificidad: 0,0,2 */
+header nav a {
+    display: inline-block;
+    padding: 1em;
+    background-color: #9F2B00;
+    color: white;
+    text-decoration: none;
+    border-radius: 0;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: 1px solid #FFD68A;
+    margin: 0;
+    /* Advertencia: color sobrescribe el color por defecto de los enlaces */
+}
+
+/* Especificidad: 0,0,3 */
+header nav a:first-child {
+    border-top-left-radius: 0.5em;
+    border-bottom-left-radius: 0.5em;
+    /* Advertencia: border-radius sobrescribe el 0 definido en header nav a */
+}
+
+/* Especificidad: 0,0,3 */
+header nav a:last-child {
+    border-top-right-radius: 0.5em;
+    border-bottom-right-radius: 0.5em;
+    /* Advertencia: border-radius sobrescribe el 0 definido en header nav a */
+}
+
+/* Especificidad: 0,0,3 */
+header nav a:hover {
+    background-color: #7A2000;
+    /* Advertencia: background-color sobrescribe #9F2B00 */
+}
+
+/* Especificidad: 0,1,1 */
+header nav a.active {
+    background-color: #FFD68A;
+    color: #9F2B00;
+    border: 1px solid #9F2B00;
+    transform: scale(1.05);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    /* Advertencia: background-color sobrescribe #9F2B00 */
+    /* Advertencia: color sobrescribe white */
+    /* Advertencia: border sobrescribe 1px solid #FFD68A */
+}
+
+/* Especificidad: 0,1,2 */
+header nav a.active:hover {
+    background-color: #FFC861;
+    /* Advertencia: background-color sobrescribe #FFD68A del .active */
+}
+
+/* ESTILOS PARA TABLAS RESPONSIVAS */
+
+/* Especificidad: 0,0,1 */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1em 0;
+    background-color: #fff;
+    /* Advertencia: color de fondo sobrescribe el heredado de body (#FFD68A) */
+}
+
+/* Especificidad: 0,0,2 */
+table th,
+table td {
+    padding: 0.8em;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+/* Especificidad: 0,0,3 */
+table thead th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+    color: #9F2B00;
+    /* Advertencia: color de fondo sobrescribe el blanco de table (#fff) */
+}
+
+/* Especificidad: 0,0,5 */
+table tbody tr:nth-child(even) {
+    background-color: #FFF5E1;
+    /* Advertencia: color de fondo sobrescribe el blanco heredado de table (#fff) */
+}
+
+/* DISEÑO RESPONSIVO PARA MÓVILES */
+
+@media (max-width: 768px) {
+    /* Especificidad: 0,0,1 */
+    table {
+        border: 0;
+    }
+    
+    /* Especificidad: 0,0,2 */
+    table thead {
+        display: none;
+    }
+    
+    /* Especificidad: 0,0,3 */
+    table tbody tr {
+        display: block;
+        margin-bottom: 1em;
+        border: 1px solid #ddd;
+        border-radius: 0.3125em;
+        background-color: #fff;
+        box-shadow: 0 0.125em 0.25em rgba(0,0,0,0.1);
+    }
+    
+    /* Especificidad: 0,0,3 */
+    table tbody td {
+        display: block;
+        text-align: right;
+        border: none;
+        border-bottom: 1px solid #eee;
+        padding: 0.6em 0.8em;
+        position: relative;
+    }
+    
+    /* Especificidad: 0,0,4 */
+    table tbody td:last-child {
+        border-bottom: 0;
+    }
+    
+    /* Mostrar etiquetas antes de cada dato */
+    /* Especificidad: 0,0,4 */
+    table tbody td::before {
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 0.85em;
+        color: #9F2B00;
+        /* Advertencia: float puede afectar al flujo normal del documento */
+        /* Advertencia: color sobrescribe el negro heredado de body */
+    }
+}

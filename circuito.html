@@ -4,32 +4,73 @@
 <head>
     <!-- Datos que describen el documento -->
     <meta charset="UTF-8" />
-    <title>MotoGP-Circuito</title>
+    <title>MotoGP - Circuito</title>
 
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
+    <link rel="stylesheet" type="text/css" href="estilo/menu-movil.css" />
+    <link rel="icon" type="text/css" href="multimedia/favicon.ico" />
 
-    <meta name ="author" content ="tu nombre" />
-    <meta name ="description" content ="Información de circuito del proyecto MotoGP-Desktop" />
-    <meta name ="keywords" content ="aquí cada documento debe tener la lista de las palabras
-    clave del mismo separadas por comas" />
+    <meta name="author" content="Ignacio - UO300737" />
+    <meta name="description" content="Información de circuito del proyecto MotoGP-Desktop" />
+    <meta name="keywords" content="MotoGP, circuito, Sepang, Malasia, información" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<meta name ="viewport" content ="width=device-width, initial-scale=1.0" />
+    <!-- Google Maps API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeKMC4IblZcvdzUbSrbx_01_lYh_k2V38&callback=Function.prototype"></script>
 
+    <!-- jQuery 3.7.1 minificado -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" 
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" 
+            crossorigin="anonymous"></script>
+    
+    <script src="js/circuito.js"></script>
+    <script src="js/menu-movil.js"></script>
 </head>
 
 <body>
     <!-- Datos con el contenidos que aparece en el navegador -->
-    <h1>MotoGPDesktop</h1>
-    <h2>Circuito de MotoGP-Desktop</h2>
-    <nav>
-        <a href="index.html" title="Página principal">Inicio</a>
-        <a href="piloto.html" title="Información del piloto">Piloto</a>
-        <a href="circuito.html" title="Información del circuito">Circuito</a>
-        <a href="meteorologia.html" title="Información del la meteorología">Meteorologia</a>
-        <a href="clasificaciones.html" title="Información de las clasificaciones">Clasificaciones</a>
-        <a href="juegos.html" title="Información de los juegos">Juegos</a>
-        <a href="ayuda.html" title="Información de ayuda">Ayuda</a>
-    </nav>
-    <p>en desarrollo</p>
+    <h1>
+        <a href="index.html" title="Página principal">MotoGPDesktop</a>
+    </h1>
+
+    <header>
+        <nav>
+            <a href="index.html" title="Página principal">Inicio</a>
+            <a href="piloto.html" title="Información del piloto">Piloto</a>
+            <a href="circuito.html" title="Información del circuito" class="active">Circuito</a>
+            <a href="meteorologia.html" title="Información de la meteorología">Meteorologia</a>
+            <a href="php/clasificaciones.php" title="Información de las clasificaciones">Clasificaciones</a>
+            <a href="juegos.html" title="Información de los juegos">Juegos</a>
+            <a href="ayuda.html" title="Información de ayuda">Ayuda</a>
+        </nav>
+
+        <p>Estás en: <a href="index.html" title="Página principal">Inicio</a> >> <strong>Circuito</strong></p>
+    </header>
+
+    <section>
+        <h2>Cargar información del circuito</h2>
+        <p>
+            <label for="archivoHTML">Selecciona el archivo infoCircuito.html:</label>
+            <input type="file" id="archivoHTML" accept=".html" />
+        </p>
+    </section>
+
+    <section>
+        <h2>Cargar perfil de altimetría</h2>
+        <p>
+            <label for="archivoSVG">Selecciona el archivo altimetria.svg (carpeta xml):</label>
+            <input type="file" id="archivoSVG" accept=".svg" />
+        </p>
+    </section>
+
+    <section>
+        <h2>Cargar mapa del circuito</h2>
+        <p>
+            <label for="archivoKML">Selecciona el archivo circuito.kml (carpeta xml):</label>
+            <input type="file" id="archivoKML" accept=".kml,.xml" />
+        </p>
+    </section>
+
 </body>
 </html>

@@ -1,0 +1,202 @@
+/* Ignacio Hoyos Diego - UO300737 */
+
+/* Estilos generales del proyecto MotoGP-Desktop */
+
+/* Especificidad: 0,0,1 */ 
+header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; /* Permite separar los elementos en filas, así las migas p van a la siguiente */
+    gap: 1.25em; /* separación entre h1 y nav */
+}
+
+/* Especificidad: 0,0,2 */ 
+header > nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 1.25em;  
+}  
+
+/* Especificidad: 0,0,2 */ 
+header p {
+    flex-basis: 100%; /* ocupa toda la fila */
+    margin-top: 0;
+}
+
+/* Especificidad: 0,0,2 - Botón de menú móvil oculto por defecto */
+header button {
+    display: none;
+}
+
+/* Especificidad: 0,0,2 - Selector de elemento body > div para el mapa dinámico */
+body > div {
+    width: 100%;
+    height: 31.25em;
+    margin: 1em 0;
+    border: 0.125em solid #333;
+}
+
+/* Especificidad: 0,0,1 */
+audio {
+    width: 100%;
+    max-width: 30em; /*Ancho máximo para que en ordenadores se vea bien*/
+    height: auto;
+    min-height: 3em; /* Añade esto */
+    /* Advertencia: max-width limita el ancho máximo en pantallas grandes */
+}
+
+/* Especificidad: 0,0,1 */
+video {
+    width: 100%;
+    max-width: 50em; /*Ancho máximo para que en ordenadores se vea bien*/
+    height: auto;
+    /* Advertencia: max-width limita el ancho máximo en pantallas grandes */
+}
+
+/* Especificidad: 0,1,0 - Selector por ID para el mapa dinámico */
+#mapa {
+    width: 100%;
+    height: 31.25em;
+    margin: 1em 0;
+    border: 0.125em solid #333;
+}
+
+@media (max-width: 485px) {
+    /* Especificidad: 0,0,1 */
+    header {
+        flex-direction: column;
+        align-items: center;
+        /* Advertencia: redefinición por media query - flex-direction sobrescribe row */
+    }
+    
+    /* Especificidad: 0,0,2 - Mostrar botón de menú en móviles */
+    header button {
+        display: block;
+        background-color: #d32f2f;
+        color: white;
+        border: none;
+        padding: 0.8em 1.5em;
+        font-size: 1em;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 0.3em;
+        margin: 0.5em 0;
+        width: 100%;
+        text-align: center;
+        transition: background-color 0.3s ease;
+        /* Advertencia: redefinición por media query - display sobrescribe none */
+    }
+    
+    /* Especificidad: 0,0,3 - Efecto hover del botón */
+    /* Advertencia: puede no funcionar en todos los dispositivos táctiles */
+    header button:hover {
+        background-color: #b71c1c;
+        /* Advertencia: redefinición por media query - background-color sobrescribe #d32f2f */
+    }
+    
+    /* Especificidad: 0,0,3 - Efecto focus para accesibilidad */
+    header button:focus {
+        outline: 0.2em solid #ffeb3b;
+        outline-offset: 0.2em;
+    }
+    
+    /* Especificidad: 0,0,3 - Efecto active del botón */
+    header button:active {
+        background-color: #9a0007;
+        /* Advertencia: redefinición por media query - background-color sobrescribe #d32f2f */
+    }
+    
+    /* Especificidad: 0,0,2 */
+    header > nav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-in-out;
+        /* Advertencia: redefinición por media query - display sobrescribe flex */
+        /* Advertencia: redefinición por media query - flex-direction sobrescribe row */
+    }
+    
+    /* Especificidad: 0,1,1 - Mostrar menú cuando está visible */
+    header nav.menu-visible {
+        display: flex;
+        max-height: 50em;
+        animation: desplegar 0.4s ease-in-out;
+        /* Advertencia: redefinición por media query - display sobrescribe none */
+        /* Advertencia: redefinición por media query - max-height sobrescribe 0 */
+    }
+    
+    /* Especificidad: 0,0,3 - Estilo de enlaces en menú móvil */
+    header nav a {
+        padding: 1em;
+        margin: 0.2em 0;
+        text-align: center;
+        background-color: #f5f5f5;
+        border-radius: 0.3em;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        /* Advertencia: redefinición por media query - padding y margin sobrescriben valores previos */
+    }
+    
+    /* Especificidad: 0,0,4 - Efecto hover de enlaces */
+    header nav a:hover {
+        background-color: #e0e0e0;
+        transform: translateX(0.3em);
+        /* Advertencia: redefinición por media query - background-color sobrescribe #f5f5f5 */
+    }
+    
+    /* Especificidad: 0,1,2 - Enlace activo en menú móvil */
+    header nav a.active {
+        background-color: #d32f2f;
+        color: white;
+        /* Advertencia: redefinición por media query - background-color sobrescribe #f5f5f5 */
+    }
+    
+    /* Especificidad: 0,1,3 - Hover del enlace activo */
+    header nav a.active:hover {
+        background-color: #b71c1c;
+        /* Advertencia: redefinición por media query - background-color sobrescribe #d32f2f */
+    }
+    
+    /* Animación de despliegue del menú */
+    @keyframes desplegar {
+        from {
+            opacity: 0;
+            transform: translateY(-1em);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    /* Especificidad: 0,0,2 */
+    header p {
+        display: none; /* oculta las migas en móviles */
+        /* Advertencia: redefinición por media query - display sobrescribe el valor previo */
+    }
+    
+    /* Especificidad: 0,0,3 - Adaptabilidad del carrusel */
+    article h2 + img {
+        width: 100%;
+        height: auto;
+        display: block;
+        /* Advertencia: redefinición por media query - width sobrescribe cualquier ancho previo */
+        /* Advertencia: redefinición por media query - display:block puede afectar al flujo del documento */
+    }
+}
+
+/* Media query para tablets */
+@media (max-width: 768px) {
+    /* Especificidad: 0,0,2 - Redefinición de body > div para adaptabilidad móvil */
+    body > div {
+        width: 100%;
+        height: 25em;
+        margin: 0.5em 0;
+        /* Advertencia: redefinición por media query - width sobrescribe 100% (mismo valor) */
+        /* Advertencia: redefinición por media query - height sobrescribe 31.25em */
+        /* Advertencia: redefinición por media query - 
+        margins left, right, top y bottom se sobrescriben 1em 0 */
+    }
+}

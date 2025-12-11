@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<circuito xmlns="http://www.uniovi.es"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.uniovi.es circuito.xsd">
+
+
+    <nombre>Petronas Sepang International Circuit</nombre>
+    <longitudTotal unidad="metros">5548</longitudTotal>
+    <anchura unidad="metros">15</anchura>
+    <fecha>2025-09-24</fecha>
+    <hora>15:00:00</hora>
+    <vueltas>56</vueltas>
+    <localidad>Sepang</localidad>
+    <pais>Malasia</pais>
+    <patrocinador>Petronas</patrocinador>
+    
+    <referencias>
+        <referencia>Artículo en revista técnica</referencia>
+        <referencia>Informe de seguridad vial</referencia>
+    </referencias>
+
+    <galeriaFotos xmlns="http://www.uniovi.es">
+        <foto>multimedia/Panorama.jpg.jpg</foto>
+        <foto>multimedia/RectaMeta.jpg</foto>
+        <foto>multimedia/PanoramaLateraljpg</foto>
+    </galeriaFotos>
+
+    <galeriaVideos xmlns="http://www.uniovi.es">
+        <video>multimedia/POVOfOneLap.mp4</video>
+        <video>multimedia/BirdEye.mp4</video>
+    </galeriaVideos>
+  
+    <puntoOrigen>
+        <longitud unidad="grados">101.44.16</longitud>
+        <latitud unidad="grados">2.45.38</latitud>
+        <altitud unidad="metros">35.79</altitud>
+      </puntoOrigen>
+    
+      <tramos>
+        <tramo distancia="595">
+          <coordenadas>
+            <longitud unidad="grados">101.70.40</longitud>
+            <latitud unidad="grados">2.45.37</latitud>
+            <altitud unidad="metros">37.6</altitud>
+          </coordenadas>
+          <sector>0</sector>
+        </tramo>
+        <tramo distancia="150">
+            <coordenadas>
+              <longitud unidad="grados">101.43.59</longitud>
+              <latitud unidad="grados">2.45.39</latitud>
+              <altitud unidad="metros">36.3</altitud>
+            </coordenadas>
+            <sector>0</sector>
+        </tramo>
+        <tramo distancia="142">
+            <coordenadas>
+              <longitud unidad="grados">101.43.59</longitud>
+              <latitud unidad="grados">2.45.41</latitud>
+              <altitud unidad="metros">31.18</altitud>
+            </coordenadas>
+            <sector>0</sector>
+        </tramo>
+        <tramo distancia="300">
+          <coordenadas>
+            <longitud unidad="grados">101.44.02</longitud>
+            <latitud unidad="grados">2.45.49</latitud>
+            <altitud unidad="metros">22.52</altitud>
+          </coordenadas>
+          <sector>0</sector>
+        </tramo>
+        <tramo distancia="395">
+            <coordenadas>
+              <longitud unidad="grados">101.44.14</longitud>
+              <latitud unidad="grados">2.45.54</latitud>
+              <altitud unidad="metros">35.85</altitud>
+            </coordenadas>
+            <sector>1</sector>
+        </tramo>
+        <tramo distancia="40">
+            <coordenadas>
+              <longitud unidad="grados">101.44.15</longitud>
+              <latitud unidad="grados">2.45.53</latitud>
+              <altitud unidad="metros">37.83</altitud>
+            </coordenadas>
+            <sector>1</sector>
+        </tramo>
+        <tramo distancia="200">
+          <coordenadas>
+            <longitud unidad="grados">101.44.16</longitud>
+            <latitud unidad="grados">2.45.17</latitud>
+            <altitud unidad="metros">40.05</altitud>
+          </coordenadas>
+          <sector>1</sector>
+        </tramo>
+        <tramo distancia="285">
+            <coordenadas>
+              <longitud unidad="grados">101.44.23</longitud>
+              <latitud unidad="grados">2.45.45</latitud>
+              <altitud unidad="metros">37.09</altitud>
+            </coordenadas>
+            <sector>8</sector>
+        </tramo>
+        <tramo distancia="175">
+          <coordenadas>
+            <longitud unidad="grados">101.44.28</longitud>
+            <latitud unidad="grados">2.45.45</latitud>
+            <altitud unidad="metros">38.65</altitud>
+          </coordenadas>
+          <sector>1</sector>
+        </tramo>
+        <tramo distancia="290">
+          <coordenadas>
+            <longitud unidad="grados">101.44.34</longitud>
+            <latitud unidad="grados">2.45.38</latitud>
+            <altitud unidad="metros">38.88</altitud>
+          </coordenadas>
+          <sector>2</sector>
+        </tramo>
+        <tramo distancia="30">
+          <coordenadas>
+            <longitud unidad="grados">101.44.34</longitud>
+            <latitud unidad="grados">2.45.37</latitud>
+            <altitud unidad="metros">38.72</altitud>
+          </coordenadas>
+          <sector>2</sector>
+        </tramo>
+        <tramo distancia="75">
+          <coordenadas>
+            <longitud unidad="grados">101.44.34</longitud>
+            <latitud unidad="grados">2.45.35</latitud>
+            <altitud unidad="metros">38.03</altitud>
+          </coordenadas>
+          <sector>2</sector>
+        </tramo>
+          <tramo distancia="40">
+          <coordenadas>
+            <longitud unidad="grados">101.44.32</longitud>
+            <latitud unidad="grados">2.45.34</latitud>
+            <altitud unidad="metros">37.67</altitud>
+          </coordenadas>
+          <sector>2</sector>
+        </tramo>
+        <tramo distancia="435">
+          <coordenadas>
+            <longitud unidad="grados">101.44.18</longitud>
+            <latitud unidad="grados">2.45.33</latitud>
+            <altitud unidad="metros">33.59</altitud>
+          </coordenadas>
+          <sector>2</sector>
+        </tramo>
+        <tramo distancia="435">
+          <coordenadas>
+            <longitud unidad="grados">101.44.18</longitud>
+            <latitud unidad="grados">2.45.33</latitud>
+            <altitud unidad="metros">33.59</altitud>
+          </coordenadas>
+          <sector>2</sector>
+        </tramo>
+        <tramo distancia="50">
+          <coordenadas>
+            <longitud unidad="grados">101.44.18</longitud>
+            <latitud unidad="grados">2.45.32</latitud>
+            <altitud unidad="metros">35.16</altitud>
+          </coordenadas>
+          <sector>2</sector>
+        </tramo>
+        <tramo distancia="65">
+          <coordenadas>
+            <longitud unidad="grados">101.44.20</longitud>
+            <latitud unidad="grados">2.45.31</latitud>
+            <altitud unidad="metros">38.94</altitud>
+          </coordenadas>
+          <sector>2</sector>
+        </tramo>
+        <tramo distancia="65">
+          <coordenadas>
+            <longitud unidad="grados">101.44.21</longitud>
+            <latitud unidad="grados">2.45.29</latitud>
+            <altitud unidad="metros">41.49</altitud>
+          </coordenadas>
+          <sector>2</sector>
+        </tramo>
+        <tramo distancia="180">
+          <coordenadas>
+            <longitud unidad="grados">101.44.19</longitud>
+            <latitud unidad="grados">2.45.24</latitud>
+            <altitud unidad="metros">44.36</altitud>
+          </coordenadas>
+          <sector>2</sector>
+        </tramo>
+        <tramo distancia="60">
+          <coordenadas>
+            <longitud unidad="grados">101.44.18</longitud>
+            <latitud unidad="grados">2.45.24</latitud>
+            <altitud unidad="metros">43.71</altitud>
+          </coordenadas>
+          <sector>2</sector>
+        </tramo>
+        <tramo distancia="265">
+          <coordenadas>
+            <longitud unidad="grados">101.44.11</longitud>
+            <latitud unidad="grados">2.45.29</latitud>
+            <altitud unidad="metros">37.54</altitud>
+          </coordenadas>
+          <sector>2</sector>
+        </tramo>
+        <tramo distancia="80">
+          <coordenadas>
+            <longitud unidad="grados">101.44.09</longitud>
+            <latitud unidad="grados">2.45.29</latitud>
+            <altitud unidad="metros">35.2</altitud>
+          </coordenadas>
+          <sector>2</sector>
+        </tramo>
+        <tramo distancia="65">
+          <coordenadas>
+            <longitud unidad="grados">101.44.07</longitud>
+            <latitud unidad="grados">2.45.28</latitud>
+            <altitud unidad="metros">33.6</altitud>
+          </coordenadas>
+          <sector>2</sector>
+        </tramo>
+        <tramo distancia="230">
+          <coordenadas>
+            <longitud unidad="grados">101.44.01</longitud>
+            <latitud unidad="grados">2.45.30</latitud>
+            <altitud unidad="metros">35.13</altitud>
+          </coordenadas>
+          <sector>3</sector>
+        </tramo>
+        <tramo distancia="65">
+          <coordenadas>
+            <longitud unidad="grados">101.44.01</longitud>
+            <latitud unidad="grados">2.45.32</latitud>
+            <altitud unidad="metros">36.53</altitud>
+          </coordenadas>
+          <sector>3</sector>
+        </tramo>
+        <tramo distancia="830">
+          <coordenadas>
+            <longitud unidad="grados">101.44.28</longitud>
+            <latitud unidad="grados">2.45.37</latitud>
+            <altitud unidad="metros">36.32</altitud>
+          </coordenadas>
+          <sector>3</sector>
+        </tramo>
+        <tramo distancia="130">
+          <coordenadas>
+            <longitud unidad="grados">101.44.28</longitud>
+            <latitud unidad="grados">2.45.39</latitud>
+            <altitud unidad="metros">36.74</altitud>
+          </coordenadas>
+          <sector>3</sector>
+        </tramo>
+        <tramo distancia="310">
+          <coordenadas>
+            <longitud unidad="grados">101.44.18</longitud>
+            <latitud unidad="grados">2.45.38</latitud>
+            <altitud unidad="metros">35.76</altitud>
+          </coordenadas>
+          <sector>3</sector>
+        </tramo>
+      </tramos>
+    
+      <vencedor>
+        <nombre>Álex Márquez</nombre>
+        <tiempo>00:40:09</tiempo>
+      </vencedor>
+    
+      <clasificacion>
+        <piloto>Marc Márquez</piloto>
+        <piloto>Álex Márquez</piloto>
+        <piloto>Marco Bezzecchi</piloto>
+      </clasificacion>
+
+</circuito>
