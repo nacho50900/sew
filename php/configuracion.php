@@ -1,5 +1,5 @@
 <?php
-// Incluir la clase BaseDatos para operaciones con la BD
+
 include 'BaseDatos.class.php';
 
 class Configuracion {
@@ -38,12 +38,10 @@ class Configuracion {
         
         $resultado = "";
         
-        // Deshabilitar comprobaciones de claves foráneas temporalmente
         if ($this->conexion->query("SET FOREIGN_KEY_CHECKS = 0")) {
             $resultado .= "Comprobaciones de claves foráneas deshabilitadas.<br>";
         }
         
-        // Orden correcto: primero tablas dependientes, luego las principales
         $tablas = [
             'OBSERVACIONES_FACILITADOR', 
             'RESPUESTAS_TEST',
@@ -63,12 +61,10 @@ class Configuracion {
             }
         }
         
-        // Rehabilitar comprobaciones de claves foráneas
         if ($this->conexion->query("SET FOREIGN_KEY_CHECKS = 1")) {
             $resultado .= "Comprobaciones de claves foráneas rehabilitadas.<br>";
         }
         
-        // Reinsertar datos iniciales
         $this->insertarDatosIniciales();
         $resultado .= "Datos iniciales insertados correctamente.<br>";
         
@@ -77,7 +73,7 @@ class Configuracion {
     }
     
     private function insertarDatosIniciales() {
-        // Insertar géneros
+
         $generos = ['Masculino', 'Femenino', 'Otro', 'Prefiero no decirlo'];
         foreach ($generos as $genero) {
             $stmt = $this->conexion->prepare("INSERT INTO GENEROS (descripcion_genero) VALUES (?)");
@@ -86,7 +82,6 @@ class Configuracion {
             $stmt->close();
         }
         
-        // Insertar dispositivos
         $dispositivos = ['Ordenador', 'Tableta', 'Teléfono'];
         foreach ($dispositivos as $dispositivo) {
             $stmt = $this->conexion->prepare("INSERT INTO DISPOSITIVOS (nombre_dispositivo) VALUES (?)");
@@ -95,7 +90,6 @@ class Configuracion {
             $stmt->close();
         }
         
-        // Insertar profesiones
         $profesiones = [
             'Estudiante de Ingeniería Informática',
             'Ingeniero Informático',
@@ -139,7 +133,6 @@ class Configuracion {
     public function exportarDatosCSV() {
         $this->conectar();
         
-        // Query que une todas las tablas relevantes INCLUYENDO las respuestas
         $query = "
             SELECT 
                 u.id_usuario AS 'ID Usuario',
@@ -181,7 +174,6 @@ class Configuracion {
         if ($resultado) {
             $nombreCSV = "test_usabilidad_completo_" . date('Y-m-d_H-i-s') . ".csv";
             
-            // Headers para descargar el archivo
             header('Content-Type: text/csv; charset=utf-8');
             header('Content-Disposition: attachment; filename="' . $nombreCSV . '"');
             header('Cache-Control: no-cache, must-revalidate');
@@ -189,19 +181,15 @@ class Configuracion {
             
             $output = fopen('php://output', 'w');
             
-            // BOM UTF-8 para que Excel reconozca los caracteres especiales (ñ, tildes, etc.)
             fprintf($output, chr(0xEF).chr(0xBB).chr(0xBF));
             
-            // Obtener nombres de columnas
             $campos = $resultado->fetch_fields();
             $nombresColumnas = array_map(function($campo) { 
                 return $campo->name; 
             }, $campos);
             
-            // Escribir encabezados
             fputcsv($output, $nombresColumnas, ';'); // Usar ; como separador para Excel en español
             
-            // Escribir datos
             while ($fila = $resultado->fetch_assoc()) {
                 fputcsv($output, $fila, ';');
             }

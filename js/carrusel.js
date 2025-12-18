@@ -7,12 +7,11 @@ class Carrusel {
         this.maximo = 4;
         this.fotos = [];
         
-        // Llamar al método para obtener las fotografías
         this.getFotografias();
     }
 
     getFotografias() {
-        // Usar la API de Unsplash
+        // API de Unsplash
         $.getJSON("https://api.unsplash.com/search/photos", {
             client_id: "-KhXDWwnlFHMsdk2YI0iaQxT3alLPOLtVNzuK-O2W4g",
             query: this.busqueda,
@@ -32,7 +31,7 @@ class Carrusel {
     procesarJSONFotografias(data) {
         console.log("Procesando JSON...");
         if(data.results && data.results.length > 0) {
-            // Adaptar el formato de Unsplash al formato que usa el carrusel
+            // Formato de Unsplash -> formato Carrusel
             this.fotos = data.results.map(photo => ({
                 url: photo.urls.regular,
                 title: photo.alt_description || photo.description || "Imagen de MotoGP"
@@ -48,28 +47,22 @@ class Carrusel {
     mostrarFotografias() {
         console.log("Mostrando fotografías...");
         
-        // Crear el article y el h2
         let article = $("<article>");
         let h2 = $("<h2>").text("Imágenes de " + this.busqueda);
         
-        // Obtener la primera foto
         let foto = this.fotos[0];
         
         console.log("URL de la primera imagen:", foto.url);
         
-        // Crear la imagen
         let img = $("<img>").attr("src", foto.url).attr("alt", foto.title);
         
-        // Añadir elementos al article
         article.append(h2);
         article.append(img);
         
-        // Insertar después del header
         $("header").after(article);
         
         console.log("Carrusel insertado en el DOM");
         
-        // Iniciar el cambio automático de imágenes cada 3 segundos
         setInterval(() => this.cambiarFotografia(), 3000);
     }
 
@@ -83,7 +76,6 @@ class Carrusel {
         
         console.log("Cambiando a imagen:", this.actual, foto.url);
         
-        // Actualizar la imagen existente
         $("article img").attr("src", foto.url).attr("alt", foto.title);
     }
 }

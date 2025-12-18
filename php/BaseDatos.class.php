@@ -1,5 +1,4 @@
 <?php
-// Clase para gestionar conexiones y operaciones con la base de datos
 class BaseDatos {
     private $servidor;
     private $usuario;
@@ -77,7 +76,6 @@ class BaseDatos {
     }
 
     public function insertarRespuestas($id_usuario, $respuestas) {
-        // Verificar que tenemos todas las respuestas
         $pregunta1 = isset($respuestas['pregunta1']) ? $respuestas['pregunta1'] : '';
         $pregunta2 = isset($respuestas['pregunta2']) ? $respuestas['pregunta2'] : '';
         $pregunta3 = isset($respuestas['pregunta3']) ? $respuestas['pregunta3'] : '';

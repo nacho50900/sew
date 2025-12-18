@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-// Incluir las clases necesarias
 include 'BaseDatos.class.php';
 include 'cronometroClass.php';
 
@@ -177,6 +176,7 @@ class TestUsabilidadVista {
                     <label for="id_profesion">
                         Profesión:
                         <select id="id_profesion" name="id_profesion" required>
+                            <option value="">-- Selecciona una profesión --</option>
                             <?php foreach ($profesiones as $profesion): ?>
                                 <option value="<?php echo $profesion['id_profesion']; ?>">
                                     <?php echo htmlspecialchars($profesion['nombre_profesion']); ?>
@@ -193,6 +193,7 @@ class TestUsabilidadVista {
                     <label for="id_genero">
                         Género:
                         <select id="id_genero" name="id_genero" required>
+                            <option value="">-- Selecciona un género --</option>
                             <?php foreach ($generos as $genero): ?>
                                 <option value="<?php echo $genero['id_genero']; ?>">
                                     <?php echo htmlspecialchars($genero['descripcion_genero']); ?>
@@ -213,6 +214,7 @@ class TestUsabilidadVista {
                     <label for="id_dispositivo">
                         Dispositivo usado:
                         <select id="id_dispositivo" name="id_dispositivo" required>
+                            <option value="">-- Selecciona un dispositivo --</option>
                             <?php foreach ($dispositivos as $dispositivo): ?>
                                 <option value="<?php echo $dispositivo['id_dispositivo']; ?>">
                                     <?php echo htmlspecialchars($dispositivo['nombre_dispositivo']); ?>
@@ -322,13 +324,10 @@ class TestUsabilidadVista {
 $controlador = new TestUsabilidadControlador();
 $vista = new TestUsabilidadVista();
 
-// Procesar formularios
 $controlador->procesarFormulario();
 
-// Determinar paso actual
 $paso = isset($_GET['paso']) ? intval($_GET['paso']) : 1;
 
-// Renderizar página
 $vista->renderizarCabecera();
 
 switch ($paso) {

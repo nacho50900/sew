@@ -128,16 +128,12 @@ class Circuito {
             section.append("<p>No se pudo cargar la información del circuito</p>");
         }
 
-        // Eliminar sección HTML anterior si existe
         $("#seccion-html").remove();
         
-        // Eliminar la primera sección (la del input HTML)
         $("section").first().remove();
         
-        // Insertar la sección HTML después del header
         $("header").after(section);
         
-        // Si existe el SVG, reposicionarlo después del HTML
         let seccionSVG = $("#seccion-svg");
         if (seccionSVG.length > 0) {
             seccionSVG.detach();
@@ -191,17 +187,14 @@ class CargadorSVG {
         
         let svgElement = svgDoc.documentElement;
 
-        // Eliminar sección SVG anterior si existe
         $("#seccion-svg").remove();
 
-        // Eliminar la sección del input SVG
         $("section").each(function() {
             if ($(this).find("input[type='file']#archivoSVG").length > 0) {
                 $(this).remove();
             }
         });
 
-        // Crear nueva sección SVG
         let section = $("<section>").attr("id", "seccion-svg");
         let heading = $("<h2>").text("Perfil de Altimetría del Circuito");
         section.append(heading);
@@ -215,21 +208,16 @@ class CargadorSVG {
         contenedorSVG.append(svgElement);
         section.append(contenedorSVG);
 
-        // Buscar la sección HTML del circuito
         let seccionHTML = $("#seccion-html");
         
         if (seccionHTML.length > 0) {
-            // Si existe el HTML, poner el SVG justo después
             seccionHTML.after(section);
         } else {
-            // Si no existe el HTML todavía, buscar el mapa
             let seccionMapa = $("#seccion-mapa");
             
             if (seccionMapa.length > 0) {
-                // Si existe el mapa pero no el HTML, poner antes del mapa
                 seccionMapa.before(section);
             } else {
-                // Si no hay ni HTML ni mapa, poner después de la última sección de inputs
                 let ultimaSeccionInput = $("section").filter(function() {
                     return $(this).find("input[type='file']").length > 0;
                 }).last();
@@ -375,11 +363,10 @@ class CargadorKML {
 
         console.log("Creando mapa con origen:", this.coordenadasOrigen);
 
-        // Buscar si ya existe la sección del mapa
         let seccionMapa = $("#seccion-mapa");
         
         if (seccionMapa.length === 0) {
-            // Crear la sección con título y contenedor del mapa
+
             let section = $("<section>").attr("id", "seccion-mapa");
             let heading = $("<h2>").text("Mapa del Circuito");
             let mapaDiv = $("<div>").attr("id", "mapa");
@@ -387,14 +374,12 @@ class CargadorKML {
             section.append(heading);
             section.append(mapaDiv);
             
-            // Eliminar la sección del input KML
             $("section").each(function() {
                 if ($(this).find("input[type='file']#archivoKML").length > 0) {
                     $(this).remove();
                 }
             });
             
-            // Añadir la sección del mapa SIEMPRE al final del body
             $("body").append(section);
         }
 
@@ -443,7 +428,7 @@ class CargadorKML {
         console.log("Insertando capa KML en el mapa...");
 
         if (this.coordenadasOrigen) {
-            // Usar Marker tradicional que funciona perfectamente con tu API Key
+
             const marker = new google.maps.Marker({
                 position: this.coordenadasOrigen,
                 map: this.mapa,
@@ -475,26 +460,23 @@ class CargadorKML {
 
 // Inicialización cuando el DOM esté listo
 $(document).ready(function() {
-    // Crear instancias de las clases
+    
     let circuito = new Circuito();
     let cargadorSVG = new CargadorSVG();
     let cargadorKML = new CargadorKML();
     
-    // Configurar el input para leer archivo HTML
     $("#archivoHTML").on("change", function() {
         if (this.files.length > 0) {
             circuito.leerArchivoHTML(this.files[0]);
         }
     });
     
-    // Configurar el input para leer archivo SVG
     $("#archivoSVG").on("change", function() {
         if (this.files.length > 0) {
             cargadorSVG.leerArchivoSVG(this.files[0]);
         }
     });
     
-    // Configurar el input para leer archivo KML
     $("#archivoKML").on("change", function() {
         if (this.files.length > 0) {
             cargadorKML.leerArchivoKML(this.files[0]);

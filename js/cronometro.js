@@ -50,7 +50,6 @@ class Cronometro {
         const mm = String(min).padStart(2, "0");
         const ss = String(seg).padStart(2, "0");
         
-        // Buscar el primer párrafo dentro del main
         const p = document.querySelector("main p");
         if (p) {
             p.textContent = `${mm}:${ss}.${dec}`;
@@ -71,18 +70,15 @@ class Cronometro {
         this.mostrar();
     }
 
-    // Método para inicializar los eventos
     inicializarEventos() {
         const botones = document.querySelectorAll("main button");
         
         if (botones.length >= 3) {
-            // Botón Arrancar
+
             botones[0].addEventListener("click", () => this.arrancar());
             
-            // Botón Parar
             botones[1].addEventListener("click", () => this.parar());
             
-            // Botón Reiniciar
             botones[2].addEventListener("click", () => this.reiniciar());
             
             console.log("Eventos del cronómetro inicializados correctamente");
@@ -92,11 +88,9 @@ class Cronometro {
     }
 }
 
-// Auto-inicialización cuando el DOM esté listo
 document.addEventListener("DOMContentLoaded", () => {
     const cronometro = new Cronometro();
     cronometro.inicializarEventos();
     
-    // Exponer globalmente para compatibilidad (opcional)
     window.cronometro = cronometro;
 });

@@ -1,7 +1,7 @@
 "use strict";
 
 class Ciudad {
-    // Atributos privados
+
     #nombre;
     #pais;
     #gentilicio;
@@ -62,16 +62,14 @@ class Ciudad {
     }
 
     procesarJSONCarrera(data) {
-        // Crear sección para la información de la carrera
+
         let section = $("<section>");
         section.append("<h3>Meteorología día de carrera</h3>");
-        
-        // Procesar datos diarios (amanecer y atardecer)
+
         let p = $("<p>");
         p.html("Amanecer: " + data.daily.sunrise[0] + "<br>Atardecer: " + data.daily.sunset[0]);
         section.append(p);
         
-        // Crear tabla con datos horarios
         let tabla = "<table><thead><tr>";
         tabla += "<th scope='col'>Hora</th>";
         tabla += "<th scope='col'>Temp</th>";
@@ -82,7 +80,6 @@ class Ciudad {
         tabla += "<th scope='col'>Dir</th>";
         tabla += "</tr></thead><tbody>";
         
-        // Procesar datos horarios (cada 3 horas)
         for(let i = 0; i < data.hourly.time.length; i += 3) {
             let hora = data.hourly.time[i].split("T")[1];
             tabla += "<tr>";
@@ -121,7 +118,6 @@ class Ciudad {
     procesarJSONEntrenos(data) {
         let dias = {};
         
-        // Agrupar datos por día
         data.hourly.time.forEach((t, i) => {
             let fecha = t.split("T")[0];
             if(!dias[fecha]) {
@@ -133,11 +129,9 @@ class Ciudad {
             dias[fecha].humedades.push(data.hourly.relative_humidity_2m[i]);
         });
         
-        // Crear sección para entrenamientos
         let section = $("<section>");
         section.append("<h3>Meteorología entrenamientos (medias)</h3>");
         
-        // Crear tabla con medias por día
         let tabla = "<table><thead><tr>";
         tabla += "<th scope='col'>Día</th>";
         tabla += "<th scope='col'>Temp</th>";
@@ -146,7 +140,6 @@ class Ciudad {
         tabla += "<th scope='col'>Humedad</th>";
         tabla += "</tr></thead><tbody>";
         
-        // Calcular medias para cada día (ajustadas a 2 decimales)
         for(let fecha in dias) {
             let d = dias[fecha];
             let tempMedia = (d.temps.reduce((a,b) => a+b) / d.temps.length).toFixed(2);

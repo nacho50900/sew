@@ -1,63 +1,12 @@
 <?php
-// Tarea 2: Creación de la clase Clasificacion
-class Clasificacion {
 
-    protected $documento;
-    protected $xml;
+require_once 'clasificacion.php';
 
-    // Constructor que inicializa el atributo documento con la ruta al XML
-    public function __construct() {
-        $this->documento = "../xml/circuitoEsquema.xml";
-    }
-
-    // Tarea 3: Método consultar para leer el documento XML
-    public function consultar() {
-        if (file_exists($this->documento)) {
-            $this->xml = simplexml_load_file($this->documento);
-        } else {
-            $this->xml = null;
-        }
-    }
-
-    // Tarea 4: Mostrar el ganador de la carrera
-    public function mostrarGanador() {
-        if ($this->xml) {
-            $datos = $this->xml->children('http://www.uniovi.es');
-            $vencedor = $datos->vencedor;
-
-            echo "<section>
-                    <h3>Ganador de la Carrera</h3>
-                    <p><strong>Piloto:</strong> " . htmlspecialchars($vencedor->nombre) . "</p>
-                    <p><strong>Tiempo:</strong> " . htmlspecialchars($vencedor->tiempo) . "</p>
-                  </section>";
-        }
-    }
-
-    // Tarea 5: Mostrar la clasificación del mundial tras la carrera
-    public function mostrarClasificacion() {
-        if ($this->xml) {
-            $datos = $this->xml->children('http://www.uniovi.es');
-            $clasificacion = $datos->clasificacion;
-
-            echo "<section>
-                    <h3>Clasificación del Mundial tras la carrera</h3>
-                    <ol>";
-                        
-            foreach ($clasificacion->piloto as $piloto) {
-                // Ahora toma el texto directamente del elemento <piloto>
-                $nombre = htmlspecialchars((string)$piloto);  // ✅ Convierte a string
-                echo "<li>" . $nombre . "</li>";
-            }
-
-            echo "  </ol>
-                  </section>";
-        }
-    }
-}
-
-// Crear instancia y consultar el XML
 $clasificacion = new Clasificacion();
 $clasificacion->consultar();
+
+$ganador = $clasificacion->obtenerGanador();
+$pilotos = $clasificacion->obtenerClasificacion();
 ?>
 <!DOCTYPE HTML>
 <html lang="es">
@@ -100,11 +49,24 @@ $clasificacion->consultar();
     <h2>Clasificaciones</h2>
 
     <main>
-        <?php 
-            // Tarea 4 y 5: Mostrar ganador y clasificación
-            $clasificacion->mostrarGanador(); 
-            $clasificacion->mostrarClasificacion(); 
-        ?>
+        <?php if ($ganador): ?>
+        <section>
+            <h3>Ganador de la Carrera</h3>
+            <p><strong>Piloto:</strong> <?php echo htmlspecialchars($ganador['nombre']); ?></p>
+            <p><strong>Tiempo:</strong> <?php echo htmlspecialchars($ganador['tiempo']); ?></p>
+        </section>
+        <?php endif; ?>
+
+        <?php if (!empty($pilotos)): ?>
+        <section>
+            <h3>Clasificación del Mundial tras la carrera</h3>
+            <ol>
+                <?php foreach ($pilotos as $piloto): ?>
+                <li><?php echo htmlspecialchars($piloto); ?></li>
+                <?php endforeach; ?>
+            </ol>
+        </section>
+        <?php endif; ?>
     </main>
 </body>
 </html>

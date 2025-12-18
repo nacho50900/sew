@@ -19,8 +19,7 @@ body {
 h1, h2 {
     font-family: Century, sans-serif;
     color: #9F2B00;
-    /* Advertencia h1: color de fondo heredado de body (#FFD68A) */
-    /* Advertencia h2: color de fondo heredado de body (#FFD68A) */
+    /* Advertencia: declaración de color sin background-color explícito, se hereda de body */
 }
 
 /* ESTILOS PARA LOS BOTONES DE NAVEGACIÓN */
@@ -28,7 +27,7 @@ h1, h2 {
 /* Especificidad: 0,0,2 */
 header > nav {
     gap: 0 !important;
-    /* sobrescribe el gap: 1.25em definido en layout.css */
+    width: 100%;
 }
 
 /* Especificidad: 0,0,2 */
@@ -43,27 +42,29 @@ header nav a {
     transition: background-color 0.3s ease, transform 0.2s ease;
     border: 1px solid #FFD68A;
     margin: 0;
-    /* Advertencia: color sobrescribe el color por defecto de los enlaces */
+    flex: 1;
+    text-align: center;
+    box-sizing: border-box;
 }
 
 /* Especificidad: 0,0,3 */
 header nav a:first-child {
     border-top-left-radius: 0.5em;
     border-bottom-left-radius: 0.5em;
-    /* Advertencia: border-radius sobrescribe el 0 definido en header nav a */
+    /* Advertencia: redefinición de border-radius por sobrescribir el valor 0 anterior */
 }
 
 /* Especificidad: 0,0,3 */
 header nav a:last-child {
     border-top-right-radius: 0.5em;
     border-bottom-right-radius: 0.5em;
-    /* Advertencia: border-radius sobrescribe el 0 definido en header nav a */
+    /* Advertencia: redefinición de border-radius por sobrescribir el valor 0 anterior */
 }
 
 /* Especificidad: 0,0,3 */
 header nav a:hover {
     background-color: #7A2000;
-    /* Advertencia: background-color sobrescribe #9F2B00 */
+    /* Advertencia: redefinición de background-color por sobrescribir #9F2B00 */
 }
 
 /* Especificidad: 0,1,1 */
@@ -73,15 +74,15 @@ header nav a.active {
     border: 1px solid #9F2B00;
     transform: scale(1.05);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    /* Advertencia: background-color sobrescribe #9F2B00 */
-    /* Advertencia: color sobrescribe white */
-    /* Advertencia: border sobrescribe 1px solid #FFD68A */
+    /* Advertencia: redefinición de background-color por sobrescribir #9F2B00 */
+    /* Advertencia: redefinición de color por sobrescribir white */
+    /* Advertencia: redefinición de border por sobrescribir 1px solid #FFD68A */
 }
 
 /* Especificidad: 0,1,2 */
 header nav a.active:hover {
     background-color: #FFC861;
-    /* Advertencia: background-color sobrescribe #FFD68A del .active */
+    /* Advertencia: redefinición de background-color por sobrescribir #FFD68A */
 }
 
 /* ESTILOS PARA TABLAS RESPONSIVAS */
@@ -92,7 +93,7 @@ table {
     border-collapse: collapse;
     margin: 1em 0;
     background-color: #fff;
-    /* Advertencia: color de fondo sobrescribe el heredado de body (#FFD68A) */
+    /* Advertencia: declaración de background-color sin color explícito, se hereda de body */
 }
 
 /* Especificidad: 0,0,2 */
@@ -108,29 +109,40 @@ table thead th {
     background-color: #f4f4f4;
     font-weight: bold;
     color: #9F2B00;
-    /* Advertencia: color de fondo sobrescribe el blanco de table (#fff) */
+    /* Advertencia: redefinición de background-color por sobrescribir #fff de table */
 }
 
 /* Especificidad: 0,0,5 */
 table tbody tr:nth-child(even) {
     background-color: #FFF5E1;
-    /* Advertencia: color de fondo sobrescribe el blanco heredado de table (#fff) */
+    /* Advertencia: redefinición de background-color por sobrescribir #fff de table */
+}
+
+/* AJUSTE PARA TABLETS Y PANTALLAS MEDIANAS (486px - 768px) */
+@media (max-width: 768px) and (min-width: 486px) {
+    header nav a {
+        padding: 0.8em 0.5em;
+        font-size: clamp(0.7rem, 2vw, 1rem);
+        min-width: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        /* Advertencia: redefinición de padding por media query, sobrescribe 1em */
+    }
 }
 
 /* DISEÑO RESPONSIVO PARA MÓVILES */
 
 @media (max-width: 768px) {
-    /* Especificidad: 0,0,1 */
     table {
         border: 0;
+        /* Advertencia: redefinición de border por media query */
     }
     
-    /* Especificidad: 0,0,2 */
     table thead {
         display: none;
     }
     
-    /* Especificidad: 0,0,3 */
     table tbody tr {
         display: block;
         margin-bottom: 1em;
@@ -138,25 +150,25 @@ table tbody tr:nth-child(even) {
         border-radius: 0.3125em;
         background-color: #fff;
         box-shadow: 0 0.125em 0.25em rgba(0,0,0,0.1);
+        /* Advertencia: redefinición de display por media query, cambia comportamiento de table row */
     }
     
-    /* Especificidad: 0,0,3 */
     table tbody td {
         display: block;
         text-align: right;
-        border: none;
         border-bottom: 1px solid #eee;
         padding: 0.6em 0.8em;
         position: relative;
+        /* Advertencia: redefinición de display por media query */
+        /* Advertencia: redefinición de text-align por sobrescribir left */
+        /* Advertencia: redefinición de padding por sobrescribir 0.8em */
     }
     
-    /* Especificidad: 0,0,4 */
     table tbody td:last-child {
         border-bottom: 0;
+        /* Advertencia: redefinición de border-bottom por media query */
     }
     
-    /* Mostrar etiquetas antes de cada dato */
-    /* Especificidad: 0,0,4 */
     table tbody td::before {
         content: attr(data-label);
         float: left;
@@ -164,7 +176,6 @@ table tbody tr:nth-child(even) {
         text-transform: uppercase;
         font-size: 0.85em;
         color: #9F2B00;
-        /* Advertencia: float puede afectar al flujo normal del documento */
-        /* Advertencia: color sobrescribe el negro heredado de body */
+        /* Advertencia: declaración de color sin background-color explícito, se hereda */
     }
 }

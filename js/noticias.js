@@ -1,7 +1,7 @@
 "use strict";
 
 class Noticias {
-    // Atributos privados
+
     #busqueda;
     #url;
 
@@ -9,12 +9,11 @@ class Noticias {
         this.#busqueda = busqueda;
         this.#url = "https://api.thenewsapi.com/v1/news/all";
         
-        // Iniciar búsqueda automáticamente
         this.buscar();
     }
 
     buscar() {
-        // Construir URL con parámetros
+
         const apiKey = "AGRLeGwjezHCuRqO2zP9KpSKUDxJbDYxfSH3T3OJ"; 
         const url = `${this.#url}?api_token=${apiKey}&search=${encodeURIComponent(this.#busqueda)}&language=es&limit=5`;
         
@@ -40,30 +39,24 @@ class Noticias {
             return;
         }
 
-        // Crear sección para noticias
         let section = $("<section>");
         let h2 = $("<h2>").text("Noticias sobre " + this.#busqueda);
         section.append(h2);
 
-        // Procesar cada noticia
         data.data.forEach(noticia => {
             let article = $("<article>");
             
-            // Titular
             let h3 = $("<h3>").text(noticia.title);
             article.append(h3);
             
-            // Entradilla (descripción)
             if (noticia.description) {
                 let p = $("<p>").text(noticia.description);
                 article.append(p);
             }
             
-            // Fuente
             let fuente = $("<p>").html("<strong>Fuente:</strong> " + (noticia.source || "Desconocida"));
             article.append(fuente);
             
-            // Enlace a la noticia completa
             if (noticia.url) {
                 let enlace = $("<a>")
                     .attr("href", noticia.url)
@@ -77,7 +70,6 @@ class Noticias {
             section.append(article);
         });
 
-        // Insertar sección después del carrusel (después del primer article)
         $("article").first().after(section);
     }
 

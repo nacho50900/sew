@@ -93,7 +93,7 @@ button {
 /* Especificidad: 0,0,2 */
 button:hover {
     background-color: #218838;
-    /* Advertencia: background-color sobrescribe del button */
+    /* Advertencia: redefinición de background - sin color de plano ya que se hereda*/
 }
 
 /* Especificidad: 0,0,2 */

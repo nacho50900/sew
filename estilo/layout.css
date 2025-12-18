@@ -20,16 +20,16 @@ header > nav {
 
 /* Especificidad: 0,0,2 */ 
 header p {
-    flex-basis: 100%; /* ocupa toda la fila */
+    flex-basis: 100%;
     margin-top: 0;
 }
 
-/* Especificidad: 0,0,2 - Botón de menú móvil oculto por defecto */
+/* Especificidad: 0,0,2 */
 header button {
     display: none;
 }
 
-/* Especificidad: 0,0,2 - Selector de elemento body > div para el mapa dinámico */
+/* Especificidad: 0,0,2 */
 body > div {
     width: 100%;
     height: 31.25em;
@@ -40,21 +40,19 @@ body > div {
 /* Especificidad: 0,0,1 */
 audio {
     width: 100%;
-    max-width: 30em; /*Ancho máximo para que en ordenadores se vea bien*/
+    max-width: 30em; 
     height: auto;
-    min-height: 3em; /* Añade esto */
-    /* Advertencia: max-width limita el ancho máximo en pantallas grandes */
+    min-height: 3em;
 }
 
 /* Especificidad: 0,0,1 */
 video {
     width: 100%;
-    max-width: 50em; /*Ancho máximo para que en ordenadores se vea bien*/
+    max-width: 50em; 
     height: auto;
-    /* Advertencia: max-width limita el ancho máximo en pantallas grandes */
 }
 
-/* Especificidad: 0,1,0 - Selector por ID para el mapa dinámico */
+/* Especificidad: 0,1,0 */
 #mapa {
     width: 100%;
     height: 31.25em;
@@ -70,7 +68,7 @@ video {
         /* Advertencia: redefinición por media query - flex-direction sobrescribe row */
     }
     
-    /* Especificidad: 0,0,2 - Mostrar botón de menú en móviles */
+    /* Especificidad: 0,0,2*/
     header button {
         display: block;
         background-color: #d32f2f;
@@ -88,20 +86,19 @@ video {
         /* Advertencia: redefinición por media query - display sobrescribe none */
     }
     
-    /* Especificidad: 0,0,3 - Efecto hover del botón */
-    /* Advertencia: puede no funcionar en todos los dispositivos táctiles */
+    /* Especificidad: 0,0,3 */
     header button:hover {
         background-color: #b71c1c;
         /* Advertencia: redefinición por media query - background-color sobrescribe #d32f2f */
     }
     
-    /* Especificidad: 0,0,3 - Efecto focus para accesibilidad */
+    /* Especificidad: 0,0,3  */
     header button:focus {
         outline: 0.2em solid #ffeb3b;
         outline-offset: 0.2em;
     }
     
-    /* Especificidad: 0,0,3 - Efecto active del botón */
+    /* Especificidad: 0,0,3 */
     header button:active {
         background-color: #9a0007;
         /* Advertencia: redefinición por media query - background-color sobrescribe #d32f2f */
@@ -128,7 +125,7 @@ video {
         /* Advertencia: redefinición por media query - max-height sobrescribe 0 */
     }
     
-    /* Especificidad: 0,0,3 - Estilo de enlaces en menú móvil */
+    /* Especificidad: 0,0,3  */
     header nav a {
         padding: 1em;
         margin: 0.2em 0;
@@ -139,21 +136,21 @@ video {
         /* Advertencia: redefinición por media query - padding y margin sobrescriben valores previos */
     }
     
-    /* Especificidad: 0,0,4 - Efecto hover de enlaces */
+    /* Especificidad: 0,0,4 */
     header nav a:hover {
         background-color: #e0e0e0;
         transform: translateX(0.3em);
         /* Advertencia: redefinición por media query - background-color sobrescribe #f5f5f5 */
     }
     
-    /* Especificidad: 0,1,2 - Enlace activo en menú móvil */
+    /* Especificidad: 0,1,2 */
     header nav a.active {
         background-color: #d32f2f;
         color: white;
         /* Advertencia: redefinición por media query - background-color sobrescribe #f5f5f5 */
     }
     
-    /* Especificidad: 0,1,3 - Hover del enlace activo */
+    /* Especificidad: 0,1,3 */
     header nav a.active:hover {
         background-color: #b71c1c;
         /* Advertencia: redefinición por media query - background-color sobrescribe #d32f2f */
